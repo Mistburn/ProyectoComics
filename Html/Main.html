@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
 	<script type="text/javascript" src="../bootstrap-3.3.5-dist/js/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="../JS/main.js" ></script>
 	<style type="text/css">
 		.carousel{
 			background: #2f4357;
@@ -207,9 +208,136 @@
 		height: 200px !important;
 	}
 
+	.editUser{
+    	margin-top: 20px;
+    	
+	}
+	.editUser a{
+		cursor:pointer;
+	}
+
+
+.main-content {
+
+	margin: 0 auto;
+}
+
+.overlay-bg {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height:100%;
+	width: 100%;
+	cursor: pointer;
+	z-index: 1000; /* high z-index */
+	background: #000; /* fallback */
+	background: rgba(0,0,0,0.75);
+}
+	.overlay-content {
+		display: none;
+		background: #fff;
+		padding: 1%;
+		width: 40%;
+		position: absolute;
+		top: 15%;
+		left: 50%;
+		margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+		cursor: default;
+		z-index: 10001;
+		border-radius: 4px;
+		box-shadow: 0 0 5px rgba(0,0,0,0.9);
+	}
+
+
+/* media query for most mobile devices */
+@media only screen and (min-width: 0px) and (max-width: 480px){
+
+	.overlay-content {
+		width: 96%;
+		margin: 0 2%;
+		left: 0;
+	}
+}
+
+
+
+.checkbox {
+			padding-left: 20px;
+		}
+		.radio, .checkbox {
+			display: block;
+			margin-bottom: 10px;
+			margin-top: 10px;
+			position: relative;
+		}
+
+		.body {
+			font-family:"helvetica";
+		}
+		.checkbox.custom {
+			float: left;
+			margin: 0;
+			padding: 0;
+			display: block;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		input[type="checkbox"].custom {
+			margin-left: 0;
+			padding:0;
+		}
+
+		input[type=checkbox].css-checkbox {
+			position:absolute;
+			overflow:hidden;
+			clip:rect(0 0 0 0);
+			height:1px;
+			width:1px;
+			margin:-1px;
+			padding:0px;
+			border:0;
+		}
+
+		input[type=checkbox].css-checkbox+label.css-label{
+			padding-left:22px;
+			height: 24px;
+			width: 24px;
+			display:inline-block;
+			line-height:15px;
+			background-repeat:no-repeat;
+			background-position:0 0;
+			font-size:13px;
+			vertical-align:middle;
+			cursor:pointer;
+			opacity:1;
+			-webkit-transition: all .2s ease-out;
+			-moz-transition: all .2s ease-out;
+			-ms-transition: all .2s ease-out;
+			-o-transition: all .2s ease-out;
+			transition: all .2s ease-out;
+		}
+
+		input[type=checkbox].css-checkbox+label.css-label:hover{
+			opacity:0.5;
+		}
+
+		input[type=checkbox].css-checkbox:checked+label.css-label{
+			background-position:0 -24px;
+		}
+
+		.css-label {
+			background-image:url(../Images/checkBoxGreen.png);
+		}
+		.labelCheck{
+			padding-left: 0px!important;
+			font-size: 12px;
+			color: #4A4849;
+		}
 	</style>
 </head>
-<body>
+<body onload="loadMain()">
 
 
 	<header class="jumbotron container">
@@ -217,9 +345,14 @@
 			<h1>Comics MX</h1>      
 			<p><i>The site where you cand find the most interesting comics at the best price!!</i></p>
 		</div>
-		<div class="btnSign">
-			<button class="btn btn-info" type="button">Log In</button>
-			<button class="btn btn-success" type="button">Sign Up</button>
+		<div class="btnSign" id="visitorLog">
+			<div>
+				<button class="btn btn-info" type="button" onclick="goToIndex(this)">Log In</button>
+				<button class="btn btn-success" type="button" onclick="goToIndex(this)">Sign Up</button>
+			</div>
+			<div class="editUser">
+				<a class="show-popup" data-showpopup="1" onclick="showPopUser()" title="Click to edit the User Information">Welcome David</a>
+			</div>
 		</div>
 	</header>
 
@@ -251,11 +384,6 @@
     			</div>
     			<button type="submit" class="btn btn-default">Enviar</button>
     		</form>
-
-    		<ul class="nav navbar-nav navbar-right">
-    			<li><a href="#">Edit Users</a></li>
-    			<li><a href="#">Edit Comics</a></li>
-    		</ul>
     	</div>
     </nav>
 </div>
@@ -474,7 +602,7 @@
 					<a href="#">Contact</a>
 				</p>
 
-				<p class="footer-company-name">Company Name &copy; 2015</p>
+				<p class="footer-company-name">Comics MX &copy; 2015</p>
 
 			</div>
 
@@ -489,6 +617,66 @@
 
 		</footer>
 
+<div id="widUser" class="overlay-bg">
+</div>
+<div id="formUser" class="overlay-content popup1">
+    <div id="signUp" class="container">
+		<div class="row centered-form">
+			<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Sign up for Comics MX <small>It's free!!</small></h3>
+					</div>
+					<div class="panel-body">
+						<form role="form" onsubmit="registerUser()" method="post">
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" pattern="[a-zA-Z]+" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name" required>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" pattern="[a-zA-Z]+" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="text" pattern="[a-zA-Z0-9-]+" name="userName" id="userName" class="form-control input-sm" placeholder="User Name" required>
+							</div>
+							<div class="form-group">
+								<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" required>
+							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="password" pattern="[a-zA-Z0-9-]+" minlength=7 name="password" id="password" class="form-control input-sm" placeholder="Password" required>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="password" pattern="[a-zA-Z0-9-]+" minlength=7 name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password" required>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="checkbox custom">
+									<input id="box" class="css-checkbox" type="checkbox" />
+									<label for="box" class="css-label"></label>
+									<label class="labelCheck">Administrator</label>
+								</div>
+							</div>
+							<input value="Register" type="submit" class="btn btn-success btn-block">
+							<a class="visitor" onclick="logInPage()">Log In</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <button class="close-btn">Close</button>
+</div>
 	</html>
 
 

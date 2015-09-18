@@ -21,91 +21,273 @@
 
 		.visitor{
 			float: right;
-    		margin-top: 10px;
+			margin-top: 10px;
+		}
+		a{
+			cursor:pointer;
+		}
+		.hide{
+			display: none;
+		}
+		
+		.checkbox {
+			padding-left: 20px;
+		}
+		.radio, .checkbox {
+			display: block;
+			margin-bottom: 10px;
+			margin-top: 10px;
+			position: relative;
+		}
+
+		.body {
+			font-family:"helvetica";
+		}
+		.checkbox.custom {
+			float: left;
+			margin: 0;
+			padding: 0;
+			display: block;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		input[type="checkbox"].custom {
+			margin-left: 0;
+			padding:0;
+		}
+
+		input[type=checkbox].css-checkbox {
+			position:absolute;
+			overflow:hidden;
+			clip:rect(0 0 0 0);
+			height:1px;
+			width:1px;
+			margin:-1px;
+			padding:0px;
+			border:0;
+		}
+
+		input[type=checkbox].css-checkbox+label.css-label{
+			padding-left:22px;
+			height: 24px;
+			width: 24px;
+			display:inline-block;
+			line-height:15px;
+			background-repeat:no-repeat;
+			background-position:0 0;
+			font-size:13px;
+			vertical-align:middle;
+			cursor:pointer;
+			opacity:1;
+			-webkit-transition: all .2s ease-out;
+			-moz-transition: all .2s ease-out;
+			-ms-transition: all .2s ease-out;
+			-o-transition: all .2s ease-out;
+			transition: all .2s ease-out;
+		}
+
+		input[type=checkbox].css-checkbox+label.css-label:hover{
+			opacity:0.5;
+		}
+
+		input[type=checkbox].css-checkbox:checked+label.css-label{
+			background-position:0 -24px;
+		}
+
+		.css-label {
+			background-image:url(../Images/checkBoxGreen.png);
+		}
+		.labelCheck{
+			padding-left: 0px!important;
+			font-size: 12px;
+			color: #4A4849;
 		}
 	</style>
-	</head>
-	<body>
-		<div class="container">
-			<div class="row centered-form">
-				<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Please sign up for Comics MX <small>It's free!</small></h3>
-						</div>
-						<div class="panel-body">
-							<form role="form">
-								<div class="row">
-									<div class="col-xs-6 col-sm-6 col-md-6">
-										<div class="form-group">
-											<input type="text" pattern="[a-zA-Z]+" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-6">
-										<div class="form-group">
-											<input type="text" pattern="[a-zA-Z]+" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
-										</div>
+
+	<script type="text/javascript">
+		function submitLogIn(){
+			var userName=document.getElementById('userName_L').value;
+			var password=document.getElementById('password_L').value;
+			if(existUser(userName,password,true)){
+				window.location.href = "Main.html";
+			}else{
+				alert('Wrong data, please verify your credentials.')
+			}
+		}
+
+		function enterVisitor(){
+			var userTemp={
+				FirstName:'Visitor',
+				LastName:'Visitor',
+				UserName:'visitor',
+				Email:'',
+				Password:'',
+				Admin:false,
+				Visitor:true
+			};
+			localStorage.setItem("CurrentUser",JSON.stringify(userTemp));
+			window.location.href = "Main.html";
+		}
+
+		function existUser(user,pass,logIn){
+			var users=JSON.parse(localStorage.getItem('Users'));
+			if(logIn){
+				for (var i = users.length - 1; i >= 0; i--) {
+					if(users[i].UserName==user && users[i].Password==pass){
+						localStorage.setItem("CurrentUser",JSON.stringify(users[i]));
+						return true;
+					}
+				};
+
+			}else{
+				for (var i = users.length - 1; i >= 0; i--) {
+					if(users[i].UserName==user){
+						return true;
+					}
+				};
+			}
+			return false;
+		}
+
+		function loadUsers(){
+			if(localStorage.getItem('Users')){
+				return true;
+			}
+			var userTemp={
+				FirstName:'David',
+				LastName:'Villanueva',
+				UserName:'test',
+				Email:'david@gmail.com',
+				Password:'mistburn',
+				Admin:true,
+				Visitor:false
+			};
+			var users=[userTemp];
+			localStorage.setItem('Users',JSON.stringify(users));
+		}
+
+		function signUpPage(){
+			document.getElementById('signUp').className = "container";
+			document.getElementById('logIn').className = "hide container";
+		}
+
+		function logInPage(){
+			document.getElementById('logIn').className = "container";
+			document.getElementById('signUp').className = "hide container";
+		}
+
+		function registerUser(){
+
+			if(document.getElementById('password').value === document.getElementById('password_confirmation').value){
+			
+				if(existUser(document.getElementById('userName').value,"",false)){
+					alert("The user already exists!");	
+					return false;
+				}
+				var userTemp={
+					FirstName:document.getElementById('first_name').value,
+					LastName:document.getElementById('last_name').value,
+					UserName:document.getElementById('userName').value,
+					Email:document.getElementById('email').value,
+					Password:document.getElementById('password').value,
+					Admin:document.getElementById('box').checked,
+					Visitor:false
+				};
+				var users=JSON.parse(localStorage.getItem('Users'));
+				users.push(userTemp);
+				localStorage.removeItem('Users');
+				localStorage.setItem('Users',JSON.stringify(users));
+				alert("The user was created correctly");
+				logInPage();
+			}else{
+				alert("The password doesn't match");
+			}
+			return false;
+		}
+
+	</script>
+</head>
+<body onload="loadUsers()">
+	<div id="signUp" class="hide container">
+		<div class="row centered-form">
+			<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Sign up for Comics MX <small>It's free!!</small></h3>
+					</div>
+					<div class="panel-body">
+						<form role="form" onsubmit="registerUser()" method="post">
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" pattern="[a-zA-Z]+" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name" required>
 									</div>
 								</div>
-
-								<div class="form-group">
-									<input type="email" pattern="[a-zA-Z0-9-]+"name="userName" id="userName" class="form-control input-sm" placeholder="User Name">
-								</div>
-
-								<div class="form-group">
-									<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
-								</div>
-
-								<div class="row">
-									<div class="col-xs-6 col-sm-6 col-md-6">
-										<div class="form-group">
-											<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-6">
-										<div class="form-group">
-											<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
-										</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" pattern="[a-zA-Z]+" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
 									</div>
 								</div>
+							</div>
+							<div class="form-group">
+								<input type="text" pattern="[a-zA-Z0-9-]+" name="userName" id="userName" class="form-control input-sm" placeholder="User Name" required>
+							</div>
+							<div class="form-group">
+								<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" required>
+							</div>
 
-								<input type="submit" value="Register" class="btn btn-success btn-block">
-
-							</form>
-						</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="password" pattern="[a-zA-Z0-9-]+" minlength=7 name="password" id="password" class="form-control input-sm" placeholder="Password" required>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="password" pattern="[a-zA-Z0-9-]+" minlength=7 name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password" required>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="checkbox custom">
+									<input id="box" class="css-checkbox" type="checkbox" />
+									<label for="box" class="css-label"></label>
+									<label class="labelCheck">Administrator</label>
+								</div>
+							</div>
+							<input value="Register" type="submit" class="btn btn-success btn-block">
+							<a class="visitor" onclick="logInPage()">Log In</a>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="container">
-			<div class="row centered-form">
-				<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Please log in for Comics MX</h3>
-						</div>
-						<div class="panel-body">
-							<form role="form">
-								
-
-								<div class="form-group">
-									<input type="email" name="userName" id="userName" class="form-control input-sm" placeholder="User Name">
-								</div>
-
-								
-									
-										<div class="form-group">
-											<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
-										</div>
-								<input type="submit" value="Log In" class="btn btn-info btn-block">
-								<input type="submit" value="Register" class="btn btn-success btn-block">
-								<a class="visitor">Enter like a visitor</a>
-							</form>
-						</div>
+	<div id="logIn" class="container">
+		<div class="row centered-form">
+			<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Please log in for Comics MX</h3>
+					</div>
+					<div class="panel-body">
+						<form role="form">
+							<div class="form-group">
+								<input type="text" pattern="[a-zA-Z0-9-]+" name="userName_L" id="userName_L" class="form-control input-sm" placeholder="User Name" required>
+							</div>
+							<div class="form-group">
+								<input type="password" pattern="[a-zA-Z0-9-]+" minlength=7 name="password_L" id="password_L" class="form-control input-sm" placeholder="Password" required>
+							</div>
+							<input type="button" value="Log In" class="btn btn-info btn-block" onclick="submitLogIn()">
+							<input type="button" value="Register" class="btn btn-success btn-block" onclick="signUpPage()">
+							<a class="visitor" onclick="enterVisitor()">Enter like a visitor</a>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-	</body>
-	</html>
+	</div>
+</body>
+</html>
