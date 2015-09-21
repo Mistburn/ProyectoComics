@@ -2,340 +2,13 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<!-- <link rel="stylesheet" type="text/css" href="../CSS/Header.css"> -->
 	<title>Comics Mx</title>
 	<script type="text/javascript" src="../JS/jquery-2.1.4.min.js" ></script>
 	<link rel="stylesheet" type="text/css" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
 	<script type="text/javascript" src="../bootstrap-3.3.5-dist/js/bootstrap.min.js" ></script>
 	<script type="text/javascript" src="../JS/main.js" ></script>
-	<style type="text/css">
-		.carousel{
-			background: #2f4357;
-			margin-top: 20px;
-			width: 38%;
-		}
-		.carousel .item img{
-			margin: 0 auto; /* Align slide image horizontally center */
-		}
-		.bs-example{
-			margin: 20px;
-		}
-		#myCarousel{
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.jumbotron{
-			padding-top: 1px;
-			padding-bottom: 15px;
-			width: 100%;
-		}
-
-		.btnSign{
-			float:right;
-			margin-right: 1%;
-			margin-top: 1%;
-		}
-		.titleSite{
-			float: left;
-		}
-
-		#asideRigth{
-			float: left;
-    		display: inline-block;
-		}
-
-		.center{
-			display: block;
-			margin-top: 20px;
-		}
-
-.footer-distributed{
-	background-color: #292c2f;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-	box-sizing: border-box;
-	width: 100%;
-	font: bold 16px sans-serif;
-	text-align: left;
-
-	padding: 50px 60px;
-	margin-top: 80px;
-	overflow: hidden;
-}
-
-/* Footer left */
-
-.footer-distributed .footer-left{
-	float: left;
-}
-
-.footer-distributed .footer-links{
-	color:  #ffffff;
-	margin: 0 0 10px;
-	padding: 0;
-}
-
-.footer-distributed .footer-links a{
-	display:inline-block;
-	line-height: 1.8;
-	text-decoration: none;
-	color:  inherit;
-}
-
-.footer-distributed .footer-company-name{
-	color:  #8f9296;
-	font-size: 14px;
-	font-weight: normal;
-	margin: 0;
-}
-
-
-/* Footer right */
-
-.footer-distributed .footer-right{
-	float: right;
-}
-
-/* The search form */
-
-.footer-distributed form{
-	position: relative;
-}
-
-.footer-distributed form input{
-	display: block;
-	border-radius: 3px;
-	box-sizing: border-box;
-	background-color:  #1f2022;
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
-	border: none;
-
-	font: inherit;
-	font-size: 14px;
-	font-weight: normal;
-	color:  #d1d2d2;
-
-	width: 500px;
-	padding: 18px 50px 18px 18px;
-}
-
-.footer-distributed form input:focus{
-	outline: none;
-}
-
-/* Changing the placeholder color */
-
-.footer-distributed form input::-webkit-input-placeholder {
-	color:  #5c666b;
-}
-
-.footer-distributed form input::-moz-placeholder {
-	opacity: 1;
-	color:  #5c666b;
-}
-
-.footer-distributed form input:-ms-input-placeholder{
-	color:  #5c666b;
-}
-
-/* The magnify glass icon */
-
-.footer-distributed form i{
-	width: 18px;
-	height: 18px;
-	position: absolute;
-	top: 16px;
-	right: 18px;
-
-	color: #d1d2d2;
-	font-size: 18px;
-}
-
-/* If you don't want the footer to be responsive, remove these media queries */
-
-@media (max-width: 1000px) {
-
-	.footer-distributed form input{
-		width: 300px;
-	}
-
-}
-
-@media (max-width: 800px) {
-
-	.footer-distributed{
-		padding: 30px;
-		text-align: center;
-		font: bold 14px sans-serif;
-	}
-
-	.footer-distributed .footer-company-name{
-		margin-top: 10px;
-		font-size: 12px;
-	}
-
-	.footer-distributed .footer-left,
-	.footer-distributed .footer-right{
-		float: none;
-		max-width: 300px;
-		margin: 0 auto;
-	}
-
-	.footer-distributed .footer-left{
-		margin-bottom: 20px;
-	}
-
-	.footer-distributed form input{
-		width: 100%;
-	}
-	
-
-	
-
-}
-
-.comicsList{
-		width: 75%;
-    	float: left;
-	}
-	.comicsGrid{
-		float: right;	
-	}
-
-	.imageGrid{
-		height: 200px !important;
-	}
-
-	.editUser{
-    	margin-top: 20px;
-    	
-	}
-	.editUser a{
-		cursor:pointer;
-	}
-
-
-.main-content {
-
-	margin: 0 auto;
-}
-
-.overlay-bg {
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height:100%;
-	width: 100%;
-	cursor: pointer;
-	z-index: 1000; /* high z-index */
-	background: #000; /* fallback */
-	background: rgba(0,0,0,0.75);
-}
-	.overlay-content {
-		display: none;
-		background: #fff;
-		padding: 1%;
-		width: 40%;
-		position: absolute;
-		top: 15%;
-		left: 50%;
-		margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
-		cursor: default;
-		z-index: 10001;
-		border-radius: 4px;
-		box-shadow: 0 0 5px rgba(0,0,0,0.9);
-	}
-
-
-/* media query for most mobile devices */
-@media only screen and (min-width: 0px) and (max-width: 480px){
-
-	.overlay-content {
-		width: 96%;
-		margin: 0 2%;
-		left: 0;
-	}
-}
-
-
-
-.checkbox {
-			padding-left: 20px;
-		}
-		.radio, .checkbox {
-			display: block;
-			margin-bottom: 10px;
-			margin-top: 10px;
-			position: relative;
-		}
-
-		.body {
-			font-family:"helvetica";
-		}
-		.checkbox.custom {
-			float: left;
-			margin: 0;
-			padding: 0;
-			display: block;
-			width: 100%;
-			margin-bottom: 20px;
-		}
-
-		input[type="checkbox"].custom {
-			margin-left: 0;
-			padding:0;
-		}
-
-		input[type=checkbox].css-checkbox {
-			position:absolute;
-			overflow:hidden;
-			clip:rect(0 0 0 0);
-			height:1px;
-			width:1px;
-			margin:-1px;
-			padding:0px;
-			border:0;
-		}
-
-		input[type=checkbox].css-checkbox+label.css-label{
-			padding-left:22px;
-			height: 24px;
-			width: 24px;
-			display:inline-block;
-			line-height:15px;
-			background-repeat:no-repeat;
-			background-position:0 0;
-			font-size:13px;
-			vertical-align:middle;
-			cursor:pointer;
-			opacity:1;
-			-webkit-transition: all .2s ease-out;
-			-moz-transition: all .2s ease-out;
-			-ms-transition: all .2s ease-out;
-			-o-transition: all .2s ease-out;
-			transition: all .2s ease-out;
-		}
-
-		input[type=checkbox].css-checkbox+label.css-label:hover{
-			opacity:0.5;
-		}
-
-		input[type=checkbox].css-checkbox:checked+label.css-label{
-			background-position:0 -24px;
-		}
-
-		.css-label {
-			background-image:url(../Images/checkBoxGreen.png);
-		}
-		.labelCheck{
-			padding-left: 0px!important;
-			font-size: 12px;
-			color: #4A4849;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="../CSS/main.css"> 
 </head>
 <body onload="loadMain()">
 
@@ -351,7 +24,7 @@
 				<button class="btn btn-success" type="button" onclick="goToIndex(this)">Sign Up</button>
 			</div>
 			<div class="editUser">
-				<a class="show-popup" data-showpopup="1" onclick="showPopUser()" title="Click to edit the User Information">Welcome David</a>
+				<a class="show-popup" data-showpopup="1" onclick="showPopUser('formUser',this)" title="Click to edit the User Information">Welcome David</a>
 			</div>
 		</div>
 	</header>
@@ -442,7 +115,8 @@
                                 $21.000</p>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Borrow</a>
+                <a class="btn btn-success btn-danger" onclick="showPopUser('formComic',this)">Edit</a>
                         </div>
                     </div>
                 </div>
@@ -463,7 +137,8 @@
                                 $21.000</p>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Borrow</a>
+                            <a class="btn btn-danger" href="http://www.jquery2dotnet.com">Edit</a>
                         </div>
                     </div>
                 </div>
@@ -484,7 +159,8 @@
                                 $21.000</p>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Borrow</a>
+                            <a class="btn btn-danger" href="http://www.jquery2dotnet.com">Edit</a>
                         </div>
                     </div>
                 </div>
@@ -505,7 +181,8 @@
                                 $21.000</p>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Borrow</a>
+                            <a class="btn btn-danger" href="http://www.jquery2dotnet.com">Edit</a>
                         </div>
                     </div>
                 </div>
@@ -526,7 +203,8 @@
                                 $21.000</p>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Borrow</a>
+                            <a class="btn btn-danger" href="http://www.jquery2dotnet.com">Edit</a>
                         </div>
                     </div>
                 </div>
@@ -547,7 +225,8 @@
                                 $21.000</p>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Borrow</a>
+                            <a class="btn btn-danger" href="http://www.jquery2dotnet.com">Edit</a>
                         </div>
                     </div>
                 </div>
@@ -620,10 +299,10 @@
 <div id="widUser" class="overlay-bg">
 </div>
 <div id="formUser" class="overlay-content popup1">
-    <div id="signUp" class="container">
+    <div id="signUp" class>
 		<div class="row centered-form">
-			<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-				<div class="panel panel-default">
+			<div class="widgetUser col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+				<div class=" noMargin panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">Sign up for Comics MX <small>It's free!!</small></h3>
 					</div>
@@ -668,14 +347,57 @@
 								</div>
 							</div>
 							<input value="Register" type="submit" class="btn btn-success btn-block">
-							<a class="visitor" onclick="logInPage()">Log In</a>
+							<button class="btn btn-danger btn-block close-btn">Close</button>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-    <button class="close-btn">Close</button>
+	</div>
+
+<div id="formComic" class="overlay-content popup1">
+    <div id="signUp" class>
+		<div class="row centered-form">
+			<div class="widgetUser col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+				<div class=" noMargin panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Sign up for Comics MX <small>It's free!!</small></h3>
+					</div>
+					<div class="panel-body">
+						<form role="form" onsubmit="registerUser()" method="post">
+						<div class="widgetComicImage">
+							<img class="comicImage" src="../Images/Comics/Kenshin1.jpg">
+						</div>
+							<div class="widgetComicLabel">
+								<div class="form-group">
+									<input type="text" pattern="[a-zA-Z0-9-]+" name="comicName" id="comicName" class="form-control input-sm" placeholder="Comic Name" required>
+								</div>
+								<div class="form-group">
+									<input type="numeric" name="comicPrice" id="comicPrice" class="form-control input-sm" placeholder="Comic Price" required>
+								</div>
+
+							<div class="form-group">
+								<input type="text" name="comicImage" id="comicImage" class="form-control input-sm" placeholder="Comic Image Path" required>
+							</div>
+
+								
+								
+							</div>
+							<div class="form-group">
+									<textarea rows="4" name="comicDesrciption" id="comicDesrciption" class="form-control input-sm" placeholder="Comic Description" required></textarea>
+								</div>
+
+							
+							<input value="Edit" type="submit" class="btn btn-success btn-block">
+							<button class="btn btn-danger btn-block close-btn">Close</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+
 </div>
 	</html>
 

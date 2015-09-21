@@ -24,15 +24,16 @@ function goToIndex(control){
 	window.location.href = "Index.html";
 }
 
-    function showPopUser(event){
+    function showPopUser(widget,control){
+    	
         var body = document.body, html = document.documentElement;
     	var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
 		var widUser= document.getElementById('widUser');
 		widUser.style.display='block';
 		widUser.style.height=docHeight;
-		var formUser=document.getElementById('formUser');
+		var formUser=document.getElementById(widget);
 		formUser.style.display='block';
-		formUser.style.top='200px'; 
+		formUser.style.top= $(window).scrollTop() +200 +'px'; 
     }
 
 $(document).ready(function(){
