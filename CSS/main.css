@@ -1,8 +1,5 @@
-.diy-slideshow{
-	position: relative;
-	display: block;
-	overflow: hidden;
-	width: 70%;
+a{
+	cursor:pointer;
 }
 
 figure{
@@ -33,35 +30,20 @@ figure.show{
 	transition: 0.5s opacity;
 }
 
-.next, .prev{
-	color: #fff;
-	position: absolute;
-	background: rgba(0,0,0, .6);
-	top: 50%;
-	z-index: 1;
-	font-size: 2em;
-	margin-top: -.75em;
-	opacity: .3;
-	user-select: none;
+#logOut{
+	color: red;
+    float: right;
 }
 
-.next:hover, .prev:hover{
-	cursor: pointer;
-	opacity: 1;
+.diy-slideshow{
+	position: relative;
+	display: block;
+	overflow: hidden;
+	width: 70%;
 }
 
-.next{
-	right: 0;
-	padding: 10px 5px 15px 10px;
-	border-top-left-radius: 3px;
-	border-bottom-left-radius: 3px;
-}
-
-.prev{
-	left: 0;
-	padding: 10px 10px 15px 5px;
-	border-top-right-radius: 3px;
-	border-bottom-right-radius: 3px;
+#comicDescription{
+	display: -moz-box;
 }
 
 .cssmenu ul,
@@ -206,6 +188,7 @@ figure.show{
 .widgetComicLabel{
 	float: right;
 	width: 75%;
+	min-height: 90px;
 }
 
 .noMargin{
@@ -228,7 +211,7 @@ figure.show{
 }
 
 .carousel .item img{
-	margin: 0 auto; /* Align slide image horizontally center */
+	margin: 0 auto; 
 }
 
 .bs-example{
@@ -251,6 +234,7 @@ figure.show{
 	float:right;
 	margin-right: 1%;
 	margin-top: 1%;
+	width: 210px;
 }
 
 .titleSite{
@@ -304,14 +288,9 @@ figure.show{
 	margin: 0;
 }
 
-
-/* Footer right */
-
 .footer-distributed .footer-right{
 	float: right;
 }
-
-/* The search form */
 
 .footer-distributed form{
 	position: relative;
@@ -324,12 +303,10 @@ figure.show{
 	background-color:  #1f2022;
 	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
 	border: none;
-
 	font: inherit;
 	font-size: 14px;
 	font-weight: normal;
 	color:  #d1d2d2;
-
 	width: 500px;
 	padding: 18px 50px 18px 18px;
 }
@@ -337,8 +314,6 @@ figure.show{
 .footer-distributed form input:focus{
 	outline: none;
 }
-
-/* Changing the placeholder color */
 
 .footer-distributed form input::-webkit-input-placeholder {
 	color:  #5c666b;
@@ -353,27 +328,20 @@ figure.show{
 	color:  #5c666b;
 }
 
-/* The magnify glass icon */
-
 .footer-distributed form i{
 	width: 18px;
 	height: 18px;
 	position: absolute;
 	top: 16px;
 	right: 18px;
-
 	color: #d1d2d2;
 	font-size: 18px;
 }
 
-/* If you don't want the footer to be responsive, remove these media queries */
-
 @media (max-width: 1000px) {
-
 	.footer-distributed form input{
 		width: 300px;
 	}
-
 }
 
 @media (max-width: 800px) {
@@ -419,6 +387,7 @@ figure.show{
 
 .editUser{
 	margin-top: 20px;
+	    float: right;
 
 }
 .editUser a{
@@ -437,30 +406,25 @@ figure.show{
 	height:100%;
 	width: 100%;
 	cursor: pointer;
-	z-index: 1000; /* high z-index */
-	background: #000; /* fallback */
+	z-index: 1000; 
+	background: #000; 
 	background: rgba(0,0,0,0.75);
 }
 
 .overlay-content {
 	display: none;
 	background: #fff;
-
-
 	position: absolute;
 	top: 15%;
 	left: 50%;
-	margin: 0 0 0 -155px; /* add negative left margin for half the width to center the div */
+	margin: 0 0 0 -155px; 
 	cursor: default;
 	z-index: 10001;
 	border-radius: 4px;
 	box-shadow: 0 0 5px rgba(0,0,0,0.9);
 }
 
-
-/* media query for most mobile devices */
 @media only screen and (min-width: 0px) and (max-width: 480px){
-
 	.overlay-content {
 		width: 96%;
 		margin: 0 2%;

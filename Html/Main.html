@@ -12,394 +12,353 @@
 </head>
 <body onload="loadMain()">
 
-
+	<!-- Header of the site !-->
 	<header class="jumbotron container">
-		<div class="titleSite">
+		<div class="titleSite"> 
 			<h1>Comics MX</h1>      
 			<p><i>The site where you cand find the most interesting comics at the best price!!</i></p>
 		</div>
-		<div class="btnSign" id="visitorLog">
-			<div>
+		<div class="btnSign" >
+			<div id="infoUser" class="editUser">
+				<a class="show-popup" onclick="showPopUp('formUser',this)" title="Click to edit the User Information" id="welcomeUser"></a>
+			</div>
+			</br>
+			<a class="show-popup" onclick="logOut()" title="Leave the site" id="logOut">Log Out</a>
+			<div id="visitorLog">
 				<button class="btn btn-info" type="button" onclick="goToIndex(this)">Log In</button>
 				<button class="btn btn-success" type="button" onclick="goToIndex(this)">Sign Up</button>
-			</div>
-			<div class="editUser">
-				<a class="show-popup" data-showpopup="1" onclick="showPopUser('formUser',this)" title="Click to edit the User Information">Welcome David</a>
 			</div>
 		</div>
 	</header>
 
+	<!-- Control for the navegation in the site !-->
 	<div class="container" style="padding-top: 1em;">
 		<nav class="navbar navbar-default" role="navigation">
-    <!-- El logotipo y el icono que despliega el menú se agrupan
-    para mostrarlos mejor en los dispositivos móviles -->
-    <div class="navbar-header">
-    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-    		<span class="sr-only">Desplegar navegación</span>
-    		<span class="icon-bar"></span>
-    		<span class="icon-bar"></span>
-    		<span class="icon-bar"></span>
-    	</button>
-    	<a class="navbar-brand" href="#">Home</a>
-    </div>
+		    <!-- El logotipo y el icono que despliega el menú se agrupan
+		    para mostrarlos mejor en los dispositivos móviles -->
+		    <div class="navbar-header">
+		    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+		    		<span class="sr-only">Show nav</span>
+		    		<span class="icon-bar"></span>
+		    		<span class="icon-bar"></span>
+		    		<span class="icon-bar"></span>
+		    	</button>
+		    	<a class="navbar-brand" onclick="filterBy()">Home</a>
+		    </div>
 
-    <!-- Agrupar los enlaces de navegación, los formularios y cualquier
-    otro elemento que se pueda ocultar al minimizar la barra -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-    	<ul class="nav navbar-nav">
-    		<li><a href="#">Genres</a></li>
-    		<li><a href="#">Editions</a></li>
-    		<li><a href="#">News</a></li>
-    		<li><a href="#">Characters</a></li>
-    		<form class="navbar-form navbar-left" role="search">
-    			<div class="form-group">
-    				<input type="text" class="form-control" placeholder="Buscar">
-    			</div>
-    			<button type="submit" class="btn btn-default">Enviar</button>
-    		</form>
-    	</div>
-    </nav>
-</div>
-
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-	<ol class="carousel-indicators">
-		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		<li data-target="#myCarousel" data-slide-to="1"></li>
-		<li data-target="#myCarousel" data-slide-to="2"></li>
-		<li data-target="#myCarousel" data-slide-to="3"></li>
-		<li data-target="#myCarousel" data-slide-to="4"></li>
-	</ol>
-	<div class="carousel-inner" >
-		<div class="item active">
-			<img src="../Images/Batman.jpg" alt="Chania">
-		</div>
-		<div class="item">
-			<img src="../Images/Superman.jpg" alt="Chania">
-		</div>
-		<div class="item">
-			<img src="../Images/Spiderman.jpg" alt="Flower">
-		</div>
-		<div class="item">
-			<img src="../Images/Thor.jpg" alt="Flower">
-		</div>
-		<div class="item">
-			<img src="../Images/Xmen.jpg" alt="Flower">
-		</div>
-	</div>
-	<a class="carousel-control left" href="#myCarousel" data-slide="prev">
-		<span class="glyphicon glyphicon-chevron-left"></span>
-	</a>
-	<a class="carousel-control right" href="#myCarousel" data-slide="next">
-		<span class="glyphicon glyphicon-chevron-right"></span>
-	</a>
-</div>
-
-<div class="center">
-<div class="comicsList">
-<div class="container comicsGrid">
-
-    <div id="products" class="row list-group">
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="imageGrid group list-group-image " src="../Images/Comics/Blade1.jpg" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Product title</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Borrow</a>
-                <a class="btn btn-success btn-danger" onclick="showPopUser('formComic',this)">Edit</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="imageGrid group list-group-image" src="../Images/Comics/Bleach3.jpg" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Product title</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Borrow</a>
-                            <a class="btn btn-danger" href="http://www.jquery2dotnet.com">Edit</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="imageGrid group list-group-image" src="../Images/Comics/DragonBall22.jpg" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Product title</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Borrow</a>
-                            <a class="btn btn-danger" href="http://www.jquery2dotnet.com">Edit</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="imageGrid group list-group-image" src="../Images/Comics/MarvelZombies3.jpg" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Product title</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Borrow</a>
-                            <a class="btn btn-danger" href="http://www.jquery2dotnet.com">Edit</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="imageGrid group list-group-image" src="../Images/Comics/Kenshin1.jpg" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Product title</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Borrow</a>
-                            <a class="btn btn-danger" href="http://www.jquery2dotnet.com">Edit</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="imageGrid group list-group-image" src="../Images/Comics/Archie13.png" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Product title</h4>
-                    <p class="group inner list-group-item-text">
-                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Borrow</a>
-                            <a class="btn btn-danger" href="http://www.jquery2dotnet.com">Edit</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-
-
-<aside id="asideRigth" class="widget well">
-	<h2 class="widget-title">Take a look!!</h2>
-	<ul>
-		<li>
-			<a href="#">Top rated</a>
-		</li>
-		<li>
-			<a href="">Popular</a>
-		</li>
-		<li>
-			<a href="">Top searches</a>
-		</li>
-		<li>
-			<a href="">Recommended</a>
-		</li>
-		<li>
-			<a href="">Qualifications</a>
-		</li>
-	</ul>
-	<p>
-		<a href="http://codex.wordpress.org/Special:Contributions/Kobenland">
-			See all of them...</a>
-		</p>
-	</aside>
-</div>
-
-<footer class="footer-distributed">
-
-			<div class="footer-left">
-
-				<p class="footer-links">
-					<a href="#">Home</a>
-					·
-					<a href="#">Blog</a>
-					·
-					<a href="#">Pricing</a>
-					·
-					<a href="#">About</a>
-					·
-					<a href="#">Faq</a>
-					·
-					<a href="#">Contact</a>
-				</p>
-
-				<p class="footer-company-name">Comics MX &copy; 2015</p>
-
-			</div>
-
-			<div class="footer-right">
-
-				<form method="get" action="#">
-					<input placeholder="Search our website" name="search" />
-					<i class="fa fa-search"></i>
-				</form>
-
-			</div>
-
-		</footer>
-
-<div id="widUser" class="overlay-bg">
-</div>
-<div id="formUser" class="overlay-content popup1">
-    <div id="signUp" class>
-		<div class="row centered-form">
-			<div class="widgetUser col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-				<div class=" noMargin panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Sign up for Comics MX <small>It's free!!</small></h3>
-					</div>
-					<div class="panel-body">
-						<form role="form" onsubmit="registerUser()" method="post">
-							<div class="row">
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" pattern="[a-zA-Z]+" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name" required>
-									</div>
-								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" pattern="[a-zA-Z]+" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<input type="text" pattern="[a-zA-Z0-9-]+" name="userName" id="userName" class="form-control input-sm" placeholder="User Name" required>
-							</div>
-							<div class="form-group">
-								<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" required>
-							</div>
-
-							<div class="row">
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="password" pattern="[a-zA-Z0-9-]+" minlength=7 name="password" id="password" class="form-control input-sm" placeholder="Password" required>
-									</div>
-								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="password" pattern="[a-zA-Z0-9-]+" minlength=7 name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password" required>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="checkbox custom">
-									<input id="box" class="css-checkbox" type="checkbox" />
-									<label for="box" class="css-label"></label>
-									<label class="labelCheck">Administrator</label>
-								</div>
-							</div>
-							<input value="Register" type="submit" class="btn btn-success btn-block">
-							<button class="btn btn-danger btn-block close-btn">Close</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+		    <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+		    otro elemento que se pueda ocultar al minimizar la barra -->
+		    <div class="collapse navbar-collapse navbar-ex1-collapse">
+		    	<ul class="nav navbar-nav">
+		    		<li>
+		    			<a class="dropdown-toggle" data-toggle="dropdown">Genres<b class="caret"></b></a>
+		    			<ul class="dropdown-menu">
+		    				<li><a onclick="filterBy('Genre','Action')">Action</a></li>
+		    				<li class="divider"></li>
+		    				<li><a onclick="filterBy('Genre','Comedy')">Comedy</a></li>
+		    				<li class="divider"></li>
+		    				<li><a onclick="filterBy('Genre','Superheroes')">Superheroes</a></li>
+		    				<li class="divider"></li>
+		    				<li><a onclick="filterBy('Genre','Vampire')">Vampire</a></li>
+		    			</ul>
+		    		</li>
+		    		<li>
+		    			<a class="dropdown-toggle" data-toggle="dropdown">Editions<b class="caret"></b></a>
+		    			<ul class="dropdown-menu">
+		    				<li><a onclick="filterBy('Edition','First')">First</a></li>
+		    				<li class="divider"></li>
+		    				<li><a onclick="filterBy('Edition','Second')">Second</a></li>
+		    				<li class="divider"></li>
+		    				<li><a onclick="filterBy('Edition','Third')">Third</a></li>
+		    			</ul>
+		    		</li>
+		    		<li>
+		    			<a class="dropdown-toggle" data-toggle="dropdown">Characters<b class="caret"></b></a>
+		    			<ul class="dropdown-menu">
+		    				<li><a onclick="filterBy('Character','Archie')">Archie</a></li>
+		    				<li class="divider"></li>
+		    				<li><a onclick="filterBy('Character','Batman')">Batman</a></li>
+		    				<li class="divider"></li>
+		    				<li><a onclick="filterBy('Character','Blade')">Blade</a></li>
+		    				<li class="divider"></li>
+		    				<li><a onclick="filterBy('Character','Captain America')">Captain America</a></li>
+		    				<li class="divider"></li>
+		    				<li><a onclick="filterBy('Character','Ironman')">Ironman</a></li>
+		    				<li class="divider"></li>
+		    				<li><a onclick="filterBy('Character','Thor')">Thor</a></li>
+		    				<li class="divider"></li>
+		    				<li><a onclick="filterBy('Character','Robin')">Robin</a></li>
+		    				
+		    			</ul>
+		    		</li>
+		    		<li><a onclick="filterBy('Borrowing')">Borrowing</a></li>
+		    		<li>
+		    			<a class="dropdown-toggle" data-toggle="dropdown">News<b class="caret"></b></a>
+		    			<ul class="dropdown-menu">
+		    				<li><a href="https://www.youtube.com/watch?v=raf6x8HESOM">Ultimate Avengers</a></li>
+		    				<li class="divider"></li>
+		    				<li><a href="https://www.youtube.com/watch?v=zwZYVmTY-kI">Todos los Avengers</a></li>
+		    				<li class="divider"></li>
+		    				<li><a href="https://www.youtube.com/watch?v=swWEhjMKk0w">Batman renuncia</a></li>
+		    				<li class="divider"></li>
+		    				<li><a href="https://www.youtube.com/watch?v=mT0qXgun3Ks">Batman es derrotado</a></li>
+		    				<li class="divider"></li>
+		    				<li><a href="https://www.youtube.com/watch?v=_-9_60oecSI">Superhero Blade</a></li>
+		    				<li class="divider"></li>
+		    				<li><a href="https://www.youtube.com/watch?v=dV2IWa-QV8M">Blade Anime</a></li>
+		    			</ul>
+		    		</li>
+		    		
+		    		<form class="navbar-form navbar-left" role="search">
+		    			<div class="form-group">
+		    				<input type="text" class="form-control" placeholder="Buscar">
+		    			</div>
+		    			<button type="submit" class="btn btn-default">Enviar</button>
+		    		</form>
+		    	</ul>
+		    </div>
+    	</nav>
 	</div>
 
-<div id="formComic" class="overlay-content popup1">
-    <div id="signUp" class>
-		<div class="row centered-form">
-			<div class="widgetUser col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-				<div class=" noMargin panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Sign up for Comics MX <small>It's free!!</small></h3>
-					</div>
-					<div class="panel-body">
-						<form role="form" onsubmit="registerUser()" method="post">
-						<div class="widgetComicImage">
-							<img class="comicImage" src="../Images/Comics/Kenshin1.jpg">
+	<!-- Carousel of images !-->
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+			<li data-target="#myCarousel" data-slide-to="3"></li>
+			<li data-target="#myCarousel" data-slide-to="4"></li>
+		</ol>
+		<div class="carousel-inner" >
+			<div class="item active">
+				<img src="../Images/Batman.jpg" alt="Chania">
+			</div>
+			<div class="item">
+				<img src="../Images/Superman.jpg" alt="Chania">
+			</div>
+			<div class="item">
+				<img src="../Images/Spiderman.jpg" alt="Flower">
+			</div>
+			<div class="item">
+				<img src="../Images/Thor.jpg" alt="Flower">
+			</div>
+			<div class="item">
+				<img src="../Images/Xmen.jpg" alt="Flower">
+			</div>
+		</div>
+		<a class="carousel-control left" href="#myCarousel" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class="carousel-control right" href="#myCarousel" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</div>
+
+	<!-- Aside with selected topics !-->
+	<div class="center">
+		<div class="comicsList">
+			<div  class="container comicsGrid">
+			    <div id="comicsGrid" class="row list-group"></div>
+			</div>
+		</div>
+		<aside id="asideRigth" class="widget well">
+			<h2 class="widget-title">Take a look!!</h2>
+			<ul>
+				<li>
+					<a onclick="filterBy('Rated')">Qualifications</a>
+				</li>
+				<li>
+					<a onclick="filterBy('Popular')">Popular</a>
+				</li>
+				<li>
+					<a href="">Top searches</a>
+				</li>
+				<li>
+					<a onclick="filterBy('Recommended')">Recommended</a>
+				</li>
+			</ul>
+			<p>
+				<a onclick="filterBy()" >See all of them...</a>
+			</p>
+		</aside>
+	</div>
+
+	<!-- Widget for block the background when the widgets appear !-->
+	<div id="widUser" class="overlay-bg">
+	</div>
+
+	<!-- Widget for edit the User !-->
+	<div id="formUser" class="overlay-content popup1">
+	    <div id="signUp" class>
+			<div class="row centered-form">
+				<div class="widgetUser col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+					<div class=" noMargin panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Edit User</h3>
 						</div>
-							<div class="widgetComicLabel">
-								<div class="form-group">
-									<input type="text" pattern="[a-zA-Z0-9-]+" name="comicName" id="comicName" class="form-control input-sm" placeholder="Comic Name" required>
+						<div class="panel-body">
+							<form role="form" onsubmit="registerUser()" method="post">
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" pattern="[a-zA-Z]+" id="widget_first_name" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name" required>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" pattern="[a-zA-Z]+" id="widget_last_name" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+										</div>
+									</div>
 								</div>
 								<div class="form-group">
-									<input type="numeric" name="comicPrice" id="comicPrice" class="form-control input-sm" placeholder="Comic Price" required>
+									<input type="text" disabled pattern="[a-zA-Z0-9-]+" id="widget_userName" name="userName" id="userName" class="form-control input-sm" placeholder="User Name" required>
 								</div>
-
-							<div class="form-group">
-								<input type="text" name="comicImage" id="comicImage" class="form-control input-sm" placeholder="Comic Image Path" required>
-							</div>
-
-								
-								
-							</div>
-							<div class="form-group">
-									<textarea rows="4" name="comicDesrciption" id="comicDesrciption" class="form-control input-sm" placeholder="Comic Description" required></textarea>
+								<div class="form-group">
+									<input type="email" name="email" id="widget_email" class="form-control input-sm" placeholder="Email Address" required>
 								</div>
-
-							
-							<input value="Edit" type="submit" class="btn btn-success btn-block">
-							<button class="btn btn-danger btn-block close-btn">Close</button>
-						</form>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="password" pattern="[a-zA-Z0-9-]+" id="widget_password" minlength=7 name="password" class="form-control input-sm" placeholder="Password" required>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="password" pattern="[a-zA-Z0-9-]+" id="widget_password_confirmation" minlength=7 name="password_confirmation"class="form-control input-sm" placeholder="Confirm Password" required>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="checkbox custom">
+										<input id="box" class="css-checkbox" type="checkbox" />
+										<label for="box" class="css-label"></label>
+										<label class="labelCheck">Administrator</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<p><strong>Comics read</strong></p>
+									<ul id="info_Comic_Read">
+									</ul>
+								</div>
+								<div class="form-group">
+									<p><strong>Comics borrowed</strong></p>
+									<ul id="info_Comic_Borrowed">
+									</ul>
+								</div>
+								<input value="Edit" id="editUser" number="" onclick="editUsers()" type="button" class="btn btn-success btn-block">
+								<input type="button" class="btn btn-danger btn-block close-btn" value="Close"/>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
 
-</div>
-	</html>
+	<!-- Widget for edit the Comic !-->
+	<div id="formComic" class="overlay-content popup1">
+	    <div id="signUp" class>
+			<div class="row centered-form">
+				<div class="widgetUser col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+					<div class=" noMargin panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Edit the Comic<small>  Be carefull!!</small></h3>
+						</div>
+						<div class="panel-body">
+							<form role="form" onsubmit="registerUser()" method="post">
+							<div class="widgetComicImage">
+								<img class="comicImage" id="widgetComicImage" src="../Images/Comics/Kenshin1.jpg">
+							</div>
+							<div>
+								<div class="widgetComicLabel">
+									<div class="form-group">
+										<input type="text" pattern="[a-zA-Z0-9\s]+" name="comicName" id="comicName" class="form-control input-sm" placeholder="Comic Name" required>
+									</div>
+									<div class="form-group">
+										<input type="numeric" name="comicRate" id="comicRate" class="form-control input-sm" placeholder="Comic Rate" required>
+									</div>
 
+									<div class="form-group">
+										<input type="text" name="comicImage" id="comicImage" class="form-control input-sm" placeholder="Comic Image Path" required>
+									</div>
+								</div>
+								<div class="form-group">
+										<textarea rows="4" name="comicDesrciption" id="comicDescription" class="form-control input-sm" placeholder="Comic Description" required></textarea>
+								</div>
+							</div>
+							<input value="Edit" id="editComic" number="" onclick="editComics()" type="button" class="btn btn-success btn-block">
+							<input type="button" class="btn btn-danger btn-block close-btn" value="Close"/>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
 
+	<!-- Widget for show Comic info !-->
+	<div id="infoComic" class="overlay-content popup1">
+	    <div id="info" class>
+			<div class="row centered-form">
+				<div class="widgetUser col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+					<div class=" noMargin panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Detail of the Comic</h3>
+						</div>
+						<div class="panel-body">
+							<form role="form" onsubmit="registerUser()" method="post">
+							<div class="widgetComicImage">
+								<img class="comicImage" id="info_widgetComicImage">
+							</div>
+								<div class="widgetComicLabel">
+									<div class="form-group">
+										<p id="info_Comic_Name"></p>
+									</div>
+									<div class="form-group">
+										<p id="info_Comic_Rate"></p>
+									</div>
+								</div>
+								<div class="form-group">
+											<p id="info_Comic_Description"></p>
+								</div>
+								<div class="form-group">
+									<p><strong>Videos</strong></p>
+									<ul id="info_Comic_Videos">
+									</ul>
+								</div>
+								<div class="form-group">
+									<p><strong>News</strong></p>
+									<ul id="info_Comic_News">
+									</ul>
+								</div>
+								<input type="button" class="btn btn-danger btn-block close-btn" value="Close"/>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
 
+	<!-- Footer of the site !-->
+	<footer class="footer-distributed">
+		<div class="footer-left">
+			<p class="footer-links">
+				<a href="#">Home</a>·
+				<a href="#">Blog</a>·
+				<a href="#">Pricing</a>·
+				<a href="#">About</a>·
+				<a href="#">Faq</a>·
+				<a href="#">Contact</a>
+			</p>
+			<p class="footer-company-name">Comics MX &copy; 2015</p>
+		</div>
+		<div class="footer-right">
+			<form method="get" action="#">
+				<input placeholder="Search our website" name="search" />
+				<i class="fa fa-search"></i>
+			</form>
+		</div>
+	</footer>
+</body>
+</html>

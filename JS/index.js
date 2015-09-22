@@ -10,7 +10,8 @@ function loadUsers(){
 		Email:'david@gmail.com',
 		Password:'mistburn',
 		Admin:true,
-		Visitor:false
+		Visitor:false,
+		Position:0
 	};
 	var users=[userTemp];
 	localStorage.setItem('Users',JSON.stringify(users));
@@ -54,11 +55,12 @@ function enterVisitor(){
 	var userTemp={
 		FirstName:'Visitor',
 		LastName:'Visitor',
-		UserName:'visitor',
-		Email:'',
-		Password:'',
-		Admin:false,
-		Visitor:true
+		UserName:'isitor',
+		Email:'visitor@visitor.com',
+		Password:'visitor',
+		Admin:true,
+		Visitor:true,
+		Position:-1
 	};
 	localStorage.setItem("CurrentUser",JSON.stringify(userTemp));
 	window.location.href = "Main.html";
@@ -85,6 +87,7 @@ function registerUser(){
 			alert("The user already exists!");	
 			return false;
 		}
+		var users=JSON.parse(localStorage.getItem('Users'));
 		var userTemp={
 			FirstName:document.getElementById('first_name').value,
 			LastName:document.getElementById('last_name').value,
@@ -92,9 +95,10 @@ function registerUser(){
 			Email:document.getElementById('email').value,
 			Password:document.getElementById('password').value,
 			Admin:document.getElementById('box').checked,
-			Visitor:false
+			Visitor:false,
+			Position:users.length
 		};
-		var users=JSON.parse(localStorage.getItem('Users'));
+		
 		users.push(userTemp);
 		localStorage.removeItem('Users');
 		localStorage.setItem('Users',JSON.stringify(users));
