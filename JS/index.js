@@ -98,7 +98,6 @@ function registerUser(){
 			Visitor:false,
 			Position:users.length
 		};
-		
 		users.push(userTemp);
 		localStorage.removeItem('Users');
 		localStorage.setItem('Users',JSON.stringify(users));

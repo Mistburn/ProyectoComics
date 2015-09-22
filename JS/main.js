@@ -8,7 +8,12 @@ function loadMain(){
 function paintMenus(currentUser){
 	if(currentUser.Visitor){
 		document.getElementById('infoUser').style.visibility='hidden';
-		var hideBtns=document.querySelectorAll(".btn-danger")
+		var hideBtns=document.querySelectorAll(".editButton")
+		for (var i = hideBtns.length - 1; i >= 0; i--) {
+			hideBtns[i].style.visibility='hidden';
+		};
+
+		var hideBtns=document.querySelectorAll(".borrow")
 		for (var i = hideBtns.length - 1; i >= 0; i--) {
 			hideBtns[i].style.visibility='hidden';
 		};
@@ -16,7 +21,10 @@ function paintMenus(currentUser){
 		document.getElementById('visitorLog').style.visibility='hidden';
 		document.getElementById('welcomeUser').innerHTML='Welcome '+ currentUser.FirstName + ' ' + currentUser.LastName;
 		if(!currentUser.Admin){
-			document.querySelector(".btn-danger").style.visibility='hidden';
+			var hideBtns=document.querySelectorAll(".editButton")
+			for (var i = hideBtns.length - 1; i >= 0; i--) {
+				hideBtns[i].style.visibility='hidden';
+			};
 		}
 	}
 }
@@ -207,8 +215,8 @@ function paintComic(obj) {
 	<p class="lead">Rate '+obj.Rate+' Stars </p>\
 	</div>\
 	<div class="col-xs-12 col-md-6">\
-	<a '+ (obj.Lend ? "disabled" : "" )+' class="btn btn-success" >Borrow</a>\
-	<a class="btn btn-success btn-danger" onclick="showPopUp(&quot;formComic&quot;,this)" number="'+ obj.Position+'">Edit</a>\
+	<a '+ (obj.Lend ? "disabled" : "" )+' class="btn btn-success borrow" >Borrow</a>\
+	<a class="btn btn-success btn-danger editButton" onclick="showPopUp(&quot;formComic&quot;,this)" number="'+ obj.Position+'">Edit</a>\
 	</div>\
 	</div>\
 	</div>\
@@ -293,6 +301,7 @@ function filterBy(category,param){
 		tempComics[i].__proto__=Comic();
 		tempComics[i].paint();
 	};
+	paintMenus(JSON.parse(localStorage.getItem('CurrentUser')));
 }
 
 // Function for log out of the system
